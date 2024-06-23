@@ -1,3 +1,37 @@
+Basically, it the same 2.1.1 Marlin, but with working Laser on the PA8 pin of the Neopixel, turned on BLTouch and some minor differrences:
+1. Because of modified extruder I had to change #define Y_MIN_POS -30 (originally 0))
+2. #define NOZZLE_TO_PROBE_OFFSET { -42, -9, 0 }) is important to calibrate based on the offset of your bltouch (if you don't have one - you better comment the #define USE_PROBE_FOR_Z_HOMING bcause otherwise you'll get quite a lot of problems), BLOTUCH CONNECTED DIRECTLY TO ITS CONNECTOR, NOT TO THE Z_ENDSTOP
+
+How to connect laser?
+1. Join the ground of the laser with the ground on the laser/laser's power supply
+2. Join PWM of the laser to the PA8 pin with the PWM of the laser VIA 150ohM CURRENT_LIMITING RESISTOR!!!
+<p align="center"><img src="https://docs.vorondesign.com/build/electrical/images/miniE3-v20-pinout.png" height="250" alt="MarlinFirmware's logo" /></p>
+
+4. LT-40W-F23 and pretty much any other laser uses 12V power supply, I strongly recommend you to check your laser's voltage before plugging it on in case it is another. There's no 12V output on the SKR e3 mini V2, you should use step-down converter, or external power supply
+
+How to use?
+1. M3 I S[0-255] sets the laser on and fires the test shot for 1 second
+2. G1/G2/G3 with S[0-255] will make a move firing the laser with the specified power. Needs to be written only once to be enabled at the specified rate for any G1/G2/G3 later
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <p align="center"><img src="buildroot/share/pixmaps/logo/marlin-outrun-nf-500.png" height="250" alt="MarlinFirmware's logo" /></p>
 
 <h1 align="center">Marlin 3D Printer Firmware</h1>
