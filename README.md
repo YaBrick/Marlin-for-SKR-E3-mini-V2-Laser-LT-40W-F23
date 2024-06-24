@@ -1,5 +1,6 @@
--So, why would you make it like that? Why not just connecting everything to the Fan1's mosfet key for example as everyone does?
--Well because I think it's dumb to solder a PWM of the laser to the PWM of already occupied pin, while there's a whole one separate and free on the board - the PA8 pin of the Neopixel! And there's no need in soldering anything, just connect the dupont cable and go!
+- So, why would you make it like that? Why not just connecting everything to the Fan1's mosfet key for example as everyone does?
+
+- Well because I think it's dumb to solder a PWM of the laser to the PWM of already occupied pin, while there's a whole one separate and free on the board - the PA8 pin of the Neopixel! And there's no need in soldering anything, just connect the dupont cable and go!
 
 How to make everything work?
 1. Connect PA8 pin (you can find it on the pinout's picture of the board below) to the PWM of the laser VIA 150ohm CURRENT-LIMITING RESISTOR. There's a good chance burning the laser's driver in case you not doing it.
