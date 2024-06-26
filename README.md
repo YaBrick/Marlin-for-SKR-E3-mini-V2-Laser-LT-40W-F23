@@ -15,7 +15,7 @@ Configuration.h
 
 3. Calibrate the steps/mm of the extruder driver!!! By default it is usually well far from the needed values
 
-How to use laser?
+How to use laser? \h
 By default in this firmware, the #define DIRECT_PIN_CONTROL (and #define PINS_DEBUGGING) are uncommented, which means you can use M42 and M43 commands now.
 For testing purposes
 M42 P8 S[0-255] - sets directly laser's pin to the PWM value of S. DOES NOT TURN OFF by itself!!!
