@@ -8,6 +8,7 @@ How to make everything work?
 And then you have to change the configuration depending on what is connected to your board:
 
 Configuration.h
+
 2.1 Without BLTouch comment the #define BLTOUCH (and also, if you have the BLTouch - change the settings of the NOZZLE_TO_PROBE_OFFSET)
 
 2.2 And change the Y_MIN_POS to 0/your value (mine is -30 with custom extruder), and Y_BED_SIZE to 235/your value
