@@ -5,11 +5,29 @@
 How to make everything work?
 1. Connect PA8 pin (you can find it on the pinout's picture of the board below) to the PWM of the laser VIA 150ohm CURRENT-LIMITING RESISTOR. There's a good chance burning the laser's driver in case you not doing it.
 2. Connect laser's ground to the motherboard's ground
-3. 
+And then you have to change the configuration depending on what is connected to your board:
+
+Configuration.h
+2.1 Without BLTouch comment the #define BLTOUCH (and also, if you have the BLTouch - change the settings of the NOZZLE_TO_PROBE_OFFSET)
+2.2 And change the Y_MIN_POS to 0/your value (mine is -30 with custom extruder), and Y_BED_SIZE to 235/your value
+
+3. Calibrate the steps/mm of the extruder driver!!! By default it is usually well far from the needed values
+
+How to use laser?
+By default in this firmware, the #define DIRECT_PIN_CONTROL (and #define PINS_DEBUGGING) are uncommented, which means you can use M42 and M43 commands now.
+For testing purposes
+M42 P8 S[0-255] - sets directly laser's pin to the PWM value of S. DOES NOT TURN OFF by itself!!!
+M3 S[0-255] - sets the laser on and strikes the laser for LASER_SAFETY_TIMEOUT_MS miliseconds (default is 1000) and THEN TURNS OFF. If M3 works this way - then you've configured everything correctly.
+
+Basic use
+G1 S[0-255] (generally S value is putten after all other values) - Sets laser on with S value for this G1 move, AND ALL OTHER G1 MOVES LATER. No need to specify S value every G1 move, the first one is sufficient.
+G0 S0 - I strongly recommend you to add S0 to the G0 commands in your postprocessor, because sometimes it does not put off the laser even with the G0 command. At least in my configuration
+G2/G3 seem to not work properly with Marlin, it just makes a straight line instead of a curve. Should not be a big deal - it seems that even Ultimaker Cura generally uses G1 commands creating a curve approximation.
+
+So that's it! If you have troubles with this configuration - feel free to open an issue, where I can help you with your case. I think this configuration is usable for other lasers too, that's the matter of testing.
 
 
-
-Pinout
+Pinout SKR e3 mini V2
 <p align="center"><img src="https://docs.vorondesign.com/build/electrical/images/miniE3-v20-pinout.png" height="250" alt="MarlinFirmware's logo" /></p>
 
 
