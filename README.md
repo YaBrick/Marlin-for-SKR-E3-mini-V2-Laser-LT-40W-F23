@@ -14,9 +14,9 @@ Configuration.h
 
 - Calibrate the steps/mm of the extruder driver!!! By default it is usually well far from the needed values
 
-How to use laser? \h
+How to use laser?
+
 By default in this firmware, the #define DIRECT_PIN_CONTROL (and #define PINS_DEBUGGING) are uncommented, which means you can use M42 and M43 commands now.
-For testing purposes
 - M42 P8 S[0-255] - sets directly laser's pin to the PWM value of S. DOES NOT TURN OFF by itself!!!
 - M3 S[0-255] - sets the laser on and strikes the laser for LASER_SAFETY_TIMEOUT_MS miliseconds (default is 1000) and THEN TURNS OFF. If M3 works this way - then you've configured everything correctly.
 
