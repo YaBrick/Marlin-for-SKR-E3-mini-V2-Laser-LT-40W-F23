@@ -27,6 +27,7 @@ Basic use
 
 So that's it! If you have troubles with this configuration - feel free to open an issue, where I can help you with your case. I think this configuration is usable for other lasers too, that's the matter of testing.
 
+If you want to know how to generate gcode to this setup (and to, really, any other custom laser setup with Marlin) - feel free to check Wiki page of this repo!
 
 Pinout SKR e3 mini V2
 <p align="center"><img src="https://docs.vorondesign.com/build/electrical/images/miniE3-v20-pinout.png" height="250" alt="MarlinFirmware's logo" /></p>
